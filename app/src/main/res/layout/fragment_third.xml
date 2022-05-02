@@ -11,13 +11,14 @@
         android:id="@+id/editTextTextSendMessage3"
         android:layout_width="304dp"
         android:layout_height="160dp"
+        android:layout_marginStart="53dp"
         android:layout_marginBottom="220dp"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textLongMessage|textMultiLine"
         android:labelFor="@id/editTextTextEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="53dp" />
+        app:layout_constraintStart_toStartOf="parent"  />
 
     <TextView
         android:id="@+id/textView6"
