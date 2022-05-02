@@ -4,12 +4,14 @@
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
+    <string name="third_fragment_label">Third Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
     <string name="send_text">Send Text</string>
     <string name="send_email">Send Email</string>
     <string name="note_field">Make your note here!</string>
     <string name="Recipients_email">Recipients Email</string>
+    <string name="Recipients_Text">Recipient #</string>
     <string name="CC_email">CC Email</string>
     <string name="BCC_email">BCC Email</string>
     <string name="Subject_email">Email Subject</string>
