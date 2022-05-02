@@ -90,4 +90,21 @@ public class MainActivity extends AppCompatActivity {
 
         startActivity(emailIntent);
     }
+    
+     public void onSendText (View view){
+        Uri smsUri = Uri.parse("tel:xxxxxxxxxx");
+        Intent textIntent = new Intent (Intent.ACTION_SEND);
+        textIntent.setType("vnd.android-dir/mms-sms");
+
+        EditText recipient = (EditText)findViewById((R.id.editTextRecipient));
+
+        EditText getMessage = (EditText) findViewById(R.id.editTextTextSendMessage);
+        String message = getMessage.getText().toString();
+
+
+        startActivity(textIntent);
+
+
+
+    }
 }
