@@ -25,4 +25,12 @@
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
     </fragment>
+     <fragment
+        android:id="@+id/thirdFragment"
+        android:name="edu.shsu.hci.mynotesapp.ThirdFragment"
+        android:label="@string/third_fragment_label">
+        <action
+            android:id="@+id/action_thirdFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
 </navigation>
