@@ -1,11 +1,14 @@
 package edu.shsu.hci.mynotesapp;
 
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.telephony.SmsManager;
+import android.util.Log;
 import android.view.View;
 
 import androidx.navigation.NavController;
@@ -18,6 +21,8 @@ import edu.shsu.hci.mynotesapp.databinding.ActivityMainBinding;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -91,21 +96,35 @@ public class MainActivity extends AppCompatActivity {
 
         startActivity(emailIntent);
     }
-    
+
      public void onSendText (View view){
-        Uri smsUri = Uri.parse("tel:xxxxxxxxxx");
-        Intent textIntent = new Intent (Intent.ACTION_SEND);
-        textIntent.setType("vnd.android-dir/mms-sms");
+        TextView textView = (TextView) findViewById(R.id.editTextRecipient);
+        String phoneNum = String.format("smsto: %s", textView.getText().toString());
+        EditText mEditText = (EditText) findViewById(R.id.editTextTextSendMessage3);
+        String message = mEditText.getText().toString();
 
-        EditText recipient = (EditText)findViewById((R.id.editTextRecipient));
-
-        EditText getMessage = (EditText) findViewById(R.id.editTextTextSendMessage);
-        String message = getMessage.getText().toString();
-
-
-        startActivity(textIntent);
+         Intent textIntent = new Intent(Intent.ACTION_SENDTO);
+         textIntent.setData(Uri.parse(phoneNum));
+         textIntent.putExtra("sms_body", message);
 
 
 
+         startActivity(textIntent);
+
+
+        if (textIntent.resolveActivity(getPackageManager()) != null){
+            startActivity(textIntent);
+        }
+        else{
+            Log.e("tag", "can't resolve");
+        }
+         EditText destinationEditText = (EditText) findViewById(R.id.editTextRecipient);
+         String destination = destinationEditText.getText().toString();
+         String address = null;
+         PendingIntent sent = null;
+         PendingIntent delivered = null;
+
+         SmsManager smsManager = SmsManager.getDefault();
+         smsManager.sendTextMessage(destination,address,message,sent,delivered);
     }
 }
