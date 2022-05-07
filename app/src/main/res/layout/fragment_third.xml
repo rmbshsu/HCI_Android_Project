@@ -13,6 +13,7 @@
         android:layout_height="160dp"
         android:layout_marginStart="53dp"
         android:layout_marginBottom="220dp"
+        android:hint = "Enter message."
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textLongMessage|textMultiLine"
@@ -63,8 +64,8 @@
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:inputType="phone"
+        android:hint="Enter phone number"
         app:layout_constraintEnd_toEndOf="parent"
-
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="SpeakableTextPresentCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>
