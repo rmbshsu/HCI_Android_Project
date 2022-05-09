@@ -15,7 +15,7 @@
     <string name="CC_email">CC Email</string>
     <string name="BCC_email">BCC Email</string>
     <string name="Subject_email">Email Subject</string>
-
+    <string name = "Message" >Message</string>
 
     <string name="welcome">Welcome to MyNotesApp!</string>
     <string name="email_header">Email Fields </string>
