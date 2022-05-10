@@ -8,7 +8,6 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.telephony.SmsManager;
-import android.util.Log;
 import android.view.View;
 
 import androidx.navigation.NavController;
@@ -108,16 +107,6 @@ public class MainActivity extends AppCompatActivity {
          textIntent.putExtra("sms_body", message);
 
 
-
-         startActivity(textIntent);
-
-
-        if (textIntent.resolveActivity(getPackageManager()) != null){
-            startActivity(textIntent);
-        }
-        else{
-            Log.e("tag", "can't resolve");
-        }
          EditText destinationEditText = (EditText) findViewById(R.id.editTextRecipient);
          String destination = destinationEditText.getText().toString();
          String address = null;
@@ -126,5 +115,8 @@ public class MainActivity extends AppCompatActivity {
 
          SmsManager smsManager = SmsManager.getDefault();
          smsManager.sendTextMessage(destination,address,message,sent,delivered);
+
+         startActivity(textIntent);
+         Toast.makeText(this,"Sent!",Toast.LENGTH_LONG).show();
     }
 }
