@@ -7,13 +7,26 @@
     tools:context=".ThirdFragment">
 
 
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="290dp"
+        android:layout_height="44dp"
+        android:textSize="14sp"
+        android:text="@string/smsPerms"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.748" />
+    
     <EditText
         android:id="@+id/editTextTextSendMessage3"
         android:layout_width="304dp"
         android:layout_height="160dp"
         android:layout_marginStart="53dp"
         android:layout_marginBottom="220dp"
-        android:hint = "Enter message."
+        android:hint="@string/SMSHint"
+        android:textColorHint="#757575"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textLongMessage|textMultiLine"
@@ -39,9 +52,11 @@
         android:layout_marginStart="68dp"
         android:layout_marginBottom="40dp"
         android:onClick="onSendText"
+        android:clickable="true"
         android:text="@string/send_text"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:focusable="true"/>
     <!-- send text goes above -->
     <Button
         android:id="@+id/button_third"
@@ -62,10 +77,12 @@
         android:layout_height="52dp"
         android:layout_marginTop="132dp"
         android:layout_marginEnd="16dp"
+        android:autofillHints=""
         android:ems="10"
         android:inputType="phone"
         android:hint="Enter phone number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpeakableTextPresentCheck" />
+        tools:ignore="SpeakableTextPresentCheck"
+        android:hint="@string/PhoneNumberHint" />
 </androidx.constraintlayout.widget.ConstraintLayout>
