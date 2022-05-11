@@ -22,6 +22,7 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.RatingBar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,6 +42,9 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+
+        RatingBar rate = (RatingBar) findViewById(R.id.ratingBar);
+        rate.setOnRatingBarChangeListener(this::onRatingChanged);
 
     }
 
@@ -119,4 +123,13 @@ public class MainActivity extends AppCompatActivity {
          startActivity(textIntent);
          Toast.makeText(this,"Sent!",Toast.LENGTH_LONG).show();
     }
+
+    public void onRatingChanged (RatingBar ratingbar, float rating, boolean fromUser)
+    {
+            if(fromUser)
+            {
+                Toast.makeText(this,"Rating : "+ ratingbar.getRating(),Toast.LENGTH_SHORT).show();
+            }
+    }
+
 }
